@@ -1,50 +1,35 @@
-name: QuickBook CI Pipeline
+name: QuickBook CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
 
-      # 3. Install frontend dependencies
-      - name: Install Frontend Dependencies
+      # FRONTEND
+      - name: Install Frontend
         run: npm install
 
-      # 4. Build frontend
       - name: Build Frontend
         run: npm run build
 
-      # 5. Install backend dependencies (if backend exists)
-      - name: Install Backend Dependencies
+      # BACKEND (safe check)
+      - name: Install Backend
         run: |
-          if [ -d "backend" ]; then
+          if [ -f backend/package.json ]; then
             cd backend
             npm install
-          fi
-
-      # 6. Basic backend check
-      - name: Backend Check
-        run: |
-          if [ -d "backend" ]; then
-            echo "Backend folder exists"
           else
-            echo "No backend folder"
+            echo "No backend package.json found"
           fi
