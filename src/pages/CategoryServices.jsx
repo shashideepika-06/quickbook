@@ -1,36 +1,26 @@
-import { useNavigate, useParams } from "react-router-dom";
 import "./CategoryServices.css";
+import { useNavigate, useParams } from "react-router-dom";
 import bg from "./../assets/home.png";
-
-// --- SALON ---
 import haircutImg from "./../assets/haircut.jpg";
 import hairstylingImg from "./../assets/hairstyling.jpg";
 import haircolorImg from "./../assets/haircolor.jpg";
 import beardtrimImg from "./../assets/beardtrim.jpg";
 import hairspaImg from "./../assets/hairspa.jpg";
-
-// --- BEAUTY ---
 import facialImg from "./../assets/facial.jpg";
 import makeupImg from "./../assets/makeup.jpg";
 import threadingImg from "./../assets/threading.jpg";
 import waxingImg from "./../assets/waxing.jpg";
 import skincareImg from "./../assets/skintreatment.jpg";
-
-// --- FITNESS ---
 import yogaImg from "./../assets/yoga.jpg";
 import gymImg from "./../assets/gym.jpg";
 import zumbaImg from "./../assets/zumba.jpg";
 import weightlossImg from "./../assets/weightloss.jpg";
 import personaltrainerImg from "./../assets/personaltrainer.jpg";
-
-// --- HOSPITAL ---
 import generalImg from "./../assets/general-checkup.jpg";
 import dentalImg from "./../assets/dental.jpg";
 import bloodtestImg from "./../assets/blood-test.jpg";
 import eyeImg from "./../assets/eye.jpg";
 import vaccinationImg from "./../assets/vaccination.jpg";
-
-// --- HOME SERVICES ---
 import electricianImg from "./../assets/electrician.jpg";
 import plumberImg from "./../assets/plumber.jpg";
 import acrepairImg from "./../assets/ac-repair.jpg";
@@ -86,28 +76,19 @@ function CategoryServices() {
       className="category-container"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      {/* TOP BAR */}
       <div className="top-bar">
-        <button
-          className="back-btn"
-          onClick={() => navigate("/services")}
-        >
+        <button className="back-btn" onClick={() => navigate("/services")}>
           ← Back
         </button>
-        <button
-          className="logout-btn"
-          onClick={() => navigate("/login")}
-        >
+        <button className="logout-btn" onClick={() => navigate("/login")}>
           Logout
         </button>
       </div>
 
-      {/* TITLE */}
       <h1 className="title">
         {decodeURIComponent(categoryName)} - Services
       </h1>
 
-      {/* SERVICES GRID */}
       <div className="services-grid">
         {services.map((service, index) => (
           <div
