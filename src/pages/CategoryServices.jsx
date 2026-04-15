@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import "./categoryServices.css";
+import "./CategoryServices.css";
 import bg from "./../assets/home.png";
 
 // --- SALON ---
